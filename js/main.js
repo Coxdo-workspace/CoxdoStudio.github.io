@@ -101,3 +101,29 @@
     
 })(jQuery);
 
+
+
+
+function sendToWhatsApp(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Get form values
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+
+    // Format the message for WhatsApp
+    const whatsappMessage = `Name: ${name}%0AEmail: ${email}%0ASubject: ${subject}%0AMessage: ${message}`;
+
+    // Your WhatsApp number (include country code)
+    const whatsappNumber = "7306803881"; // +91 7306803881
+
+    // Create WhatsApp URL
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
+    // Redirect to WhatsApp
+    window.open(whatsappUrl, '_blank');
+}
+
+
